@@ -3,16 +3,25 @@
 
   type CounterState = { count: number; title: string }
 
-  const counterStates: CounterState[] = [{ count: 0, title: '' }]
+  let counterStates: CounterState[] = [{ count: 0, title: '' }]
 
   function addNewCounter() {
     counterStates[counterStates.length] = { count: 0, title: '' }
   }
+
+  const onClickDeleteButton = (index) => () => {
+    counterStates.splice(index, 1)
+    counterStates = counterStates
+  }
 </script>
 
 <main>
-  {#each counterStates as counterState}
-    <Counter bind:count={counterState.count} bind:title={counterState.title} />
+  {#each counterStates as counterState, index}
+    <Counter
+      bind:count={counterState.count}
+      bind:title={counterState.title}
+      onClickDeleteButton={onClickDeleteButton(index)}
+    />
   {/each}
   <button on:click={addNewCounter}>Add new counter</button>
 </main>
