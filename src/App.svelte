@@ -18,16 +18,22 @@
   }
 </script>
 
-<main>
-  {#each counterStates as counterState, index}
-    <Counter
-      bind:count={counterState.count}
-      bind:title={counterState.title}
-      onClickDeleteButton={onClickDeleteButton(index)}
-    />
-  {/each}
-  {sum}
-  <Button kind="primary" size="small" on:click={addNewCounter}>Add new counter</Button>
+<main class="container mx-auto mt-12">
+  <div class="w-max mx-auto">
+    <div class="flex flex-col gap-2">
+      {#each counterStates as counterState, index}
+        <Counter
+          bind:count={counterState.count}
+          bind:title={counterState.title}
+          onClickDeleteButton={onClickDeleteButton(index)}
+        />
+      {/each}
+    </div>
+    <div>{sum}</div>
+    <Button class="block w-max mx-auto" kind="primary" size="small" on:click={addNewCounter}
+      >Add new counter
+    </Button>
+  </div>
 </main>
 
 <style>
