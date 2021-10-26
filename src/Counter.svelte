@@ -24,8 +24,9 @@
   }
 </script>
 
-<div class="flex items-center">
-  {count}
+<div class="flex items-center gap-1">
+  <input placeholder="title" bind:value={title} />
+  <span class="text-xl px-4">{count}</span>
   <Button
     kind="tertiary"
     size="small"
@@ -41,7 +42,6 @@
     on:click={decrement}
   />
   <Button kind="tertiary" size="small" icon={ResetIcon} iconDescription="Reset" on:click={reset} />
-  <input placeholder="title" bind:value={title} />
   <Button
     kind="ghost"
     size="small"
