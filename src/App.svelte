@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { Button } from 'carbon-components-svelte'
   import Counter from './Counter.svelte'
 
   type CounterState = { count: number; title: string }
@@ -23,7 +24,7 @@
       onClickDeleteButton={onClickDeleteButton(index)}
     />
   {/each}
-  <button on:click={addNewCounter}>Add new counter</button>
+  <Button kind="primary" size="small" on:click={addNewCounter}>Add new counter</Button>
 </main>
 
 <style>
