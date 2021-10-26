@@ -29,7 +29,7 @@
         />
       {/each}
     </div>
-    <div>{sum}</div>
+    <div>Sum of counters: <span class="text-lg">{sum}</span></div>
     <Button class="block w-max mx-auto" kind="primary" size="small" on:click={addNewCounter}
       >Add new counter
     </Button>
