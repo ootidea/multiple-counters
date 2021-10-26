@@ -8,13 +8,39 @@
   export let count: number
   export let title: string
   export let onClickDeleteButton: () => void
+
+  function increment() {
+    count++
+  }
+
+  function decrement() {
+    if (count > 0) {
+      count--
+    }
+  }
+
+  function reset() {
+    count = 0
+  }
 </script>
 
 <div>
   {count}
-  <Button kind="tertiary" size="small" icon={PlusIcon} iconDescription="Increment" />
-  <Button kind="tertiary" size="small" icon={MinusIcon} iconDescription="Decrement" />
-  <Button kind="tertiary" size="small" icon={ResetIcon} iconDescription="Reset" />
+  <Button
+    kind="tertiary"
+    size="small"
+    icon={PlusIcon}
+    iconDescription="Increment"
+    on:click={increment}
+  />
+  <Button
+    kind="tertiary"
+    size="small"
+    icon={MinusIcon}
+    iconDescription="Decrement"
+    on:click={decrement}
+  />
+  <Button kind="tertiary" size="small" icon={ResetIcon} iconDescription="Reset" on:click={reset} />
   <input placeholder="title" bind:value={title} />
   <Button
     kind="ghost"
