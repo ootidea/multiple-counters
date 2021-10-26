@@ -6,6 +6,8 @@
 
   let counterStates: CounterState[] = [{ count: 0, title: '' }]
 
+  $: sum = counterStates.reduce((value, counterState) => value + counterState.count, 0)
+
   function addNewCounter() {
     counterStates[counterStates.length] = { count: 0, title: '' }
   }
@@ -24,6 +26,7 @@
       onClickDeleteButton={onClickDeleteButton(index)}
     />
   {/each}
+  {sum}
   <Button kind="primary" size="small" on:click={addNewCounter}>Add new counter</Button>
 </main>
 
