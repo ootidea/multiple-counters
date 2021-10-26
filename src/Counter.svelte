@@ -24,7 +24,7 @@
   }
 </script>
 
-<div>
+<div class="flex items-center">
   {count}
   <Button
     kind="tertiary"
